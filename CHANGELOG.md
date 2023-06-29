@@ -5,6 +5,162 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 5.17.2 | 6.5.2 — 26.06.2023
+
+[![actions](https://img.shields.io/badge/Sophia%20News-Telegram-blue?style=flat&logo=Telegram)](https://t.me/SophiaNews) [![actions](https://img.shields.io/badge/Sophia%20Chat-Telegram-blue?style=flat&logo=Telegram)](https://t.me/Sophia_Chat) [![Discord](https://discordapp.com/api/guilds/1006179075263561779/widget.png?style=shield)](https://discord.gg/sSryhaEv79)
+
+# [Donate](https://github.com/farag2/Sophia-Script-for-Windows#donations)
+
+## Enterprise LTSC 2019 | Enterprise LTSC 2021 | Windows 10 22H2 | Windows 11 22H2
+
+## 5.17.2 | 6.5.2 — 26.06.2023
+
+* Fixed bug in `Export-Associations`;
+  * Reported by @lowl1f3.
+* Closed #494;
+  * Now `TaskbarChat` function except hiding the iсon also prevents `Microsoft Teams` from installing for new users by creating a special registry key as `NT SERVICE\TrustedInstaller`;
+* Fixed `Cursors` function.
+  * If you encountered with a wrong cursor applied, please re-apply the function.
+
+### Wrapper 2.6.7
+
+* Closed #490.
+
+## 5.17.0 | 6.5.0 — 27.05.2023
+
+* Expanded start-up checks;
+  * Now the script checks and removes all IP addresses add to `hosts` file that block Microsoft recourses added by harmful tweaker [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker);
+  * Now the script checks whether `Microsoft Edge` is installed, and if not it will be downloaded and installed.
+* Improved and fixed `Set-Association` function
+  * Now you can associate extensions with protocols: `Set-Association -ProgramPath MSEdgeMHT -Extension .html`.
+* Added `Export-Associations` and `Import-Associations` to let user export all Windows associations and import all Windows associations from a JSON file;
+  * `Export-Associations` exports `Application_Associations.json` to script root folder;
+  * You have to install all apps to the same folders according to an exported JSON file to restore all associations, unless this extension will be skipped;
+  * `Import-Associations` lets you import `Application_Associations.json` via an open file dialog;
+  * This is more of a `proof of concept` (and may contain bugs) which shows that is possible to restore associations from an old PC to a new one (like in some harmful tweakers like `Modern Tweaker` and `Win10Tweaker` provide). But I'd not recommend to rely on this approach. Better do it manually. But the functions works. :cat:
+* Added `SecondsInSystemClock` function for Windows 11 to enable seconds in the taskbar as Windows 10 provides.
+* Fixes for #472, #476, #480, and #482;
+* Improved translations;
+* Minor changes.
+
+### Wrapper 2.6.6
+
+* Fixed JSON configs;
+* Improved the German translation;
+  * Thanks to @sensinsane.
+* Minor changes.
+
+> **Note**: Please note that Wrapper doesn't have all functions as CLI `Sophia Script` provides. If you want to apply all functions, you need to configure `Sophia.ps1` file.
+
+`Sophia Script for Windows` hits more than 700 000 downloads! Thank you for your interest in Windows tweaking! ❤️
+
+## 5.16.4 | 6.4.4 — 01.04.2023
+
+* Fixes for #466, #472, #470, and #469
+* Fixed a bug in Set-Association function when a used Desktop context menu item was accidentally removed;
+  * Thanks to @lowl1f3.
+
+## 5.16.3 | 6.4.3 — 28.03.2023
+
+* Improved `Checks`;
+  * Expanded the list of harmful tweakers, trojans and other unwanted apps blocking the script running;
+  * Added Microsoft Edge installation if it was removed by harmful tweakers. [WebView2 Runtime](https://helpdeskgeek.com/help-desk/what-is-microsoft-edge-webview2-runtime-and-how-to-reduce-cpu-usage/) is a mandatory Windows component.
+* Minor changes and improvements.
+
+## 5.16.2 | 6.4.2 — 20.03.2023
+
+* Added `LocalSecurityAuthority` function to prevent code injection (for Windows 11 22H2 only);
+  * <https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection>
+* Improved `Checks` having expanded the list of blocked harmful tweakers;
+* Fixed `ThumbnailCacheRemoval` function;
+* Removed `SnapAssistFlyout` function;
+* Minor changes.
+
+### Wrapper 2.6.4
+
+* Minor changes.
+
+## 5.16.1 | 6.4.1 — 14.03.2023
+
+* Code refactoring;
+* Fixed a bug in `ShowMenu` function when Windows Terminal console was overbuffered that broke interractive ShowMenu;
+  * Big thanks to [iNNOKENTIY21](https://forum.ru-board.com/profile.cgi?action=show&member=iNNOKENTIY21);
+  * <https://github.com/microsoft/terminal/issues/14992>
+* Fixed `IPv6Component` by switching to <https://ipify.org>
+* Removed `CheckUWPAppsUpdates` function and intergrated into code;
+* Renamed `SetUserShellFolderLocation` function into `Set-UserShellFolderLocation`;
+* Many small changes and improvements.
+
+## 5.16.0 | 6.4.0 — 08.03.2023
+
+* Dropped support for `Windows 11 22000` & `Windows 10 21H2`;
+  * If you run the script on `Windows 11 22000` you will silently download and run [Windows 11 Installation Assistant](https://www.microsoft.com/software-download/windows11), then download the [PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844) and expand it without installation to prepare for upgrading.
+* `CleanupTask`, `SoftwareDistributionTask`, `TempTask` re-written;
+  * Now all scheduled tasks respect `Focus Assist` mode and won't interrupt while you playing games or watching fullscreen videos with any notification toasts or powershell.exe pop-ups
+  * Uses the [FocusAssistLib.cs](https://github.com/DCourtel/Windows_10_Focus_Assist/blob/master/FocusAssistLibrary/FocusAssistLib.cs) code from @DCourtel!
+  * <https://redplait.blogspot.com/2018/07/wnf-ids-from-perfntcdll-adk-version.html>
+  * **I strongly recommend you to update them** ([how-to](https://github.com/farag2/Sophia-Script-for-Windows#how-to-run-the-specific-functions))
+
+  ```powershell
+  # With dot at the beginning
+  . .\Functions.ps1
+
+  Sophia -Functions "CleanupTask -Register", "SoftwareDistributionTask -Register", "TempTask -Register"
+  ```
+
+* Improved `WSL-Install`;
+* Removed `RunPowerShellShortcut` function as not necessary any more;
+* `WSA` function renamed into `Install-WSA` and has no parameters any more;
+* Added `TaskbarSearch -SearchIconLabel` new parameter to configure search bar design on the taskbar;
+* Added `SATADrivesRemovableMedia` function to prevent all internal SATA drives from showing up as removable media in the taskbar notification area
+* #453 closed;
+* Many small changes and improvements.
+
+## 5.15.2 | 6.3.2 — 11.02.2023
+
+* Improved and fixed `WSL-Install` function when WSL output was parsed wrong;
+  * Thanks to @lowl1f3.
+* Improved `OneDrive` function;
+* #449 closed;
+* Minor changes.
+
+* Wrapper 2.6.3
+  * Minor changes.
+
+## 5.15.1 | 6.3.1 — 06.02.2023
+
+* `WSL` function re-written and renamed into `WSL-Install`
+  * Now it generates always actual distros supported list by parsing the `wsl --list --online` output;
+  * ![img](https://i.imgur.com/Xn5SqxE.png)
+  * Thanks to @Inestic, the main [SophiApp](https://github.com/Sophia-Community/SophiApp) developer.
+* Improved `OneDrive` function;
+* Added `NavigationPaneExpand` function to expand navigation pane to open folder
+  * Closes #444.
+* Renamed `HEIF` function to `HEVC`;
+* Minor changes.
+
+* Wrapper 2.6.2
+  * Minor changes.
+
+## 5.15.0 | 6.3.0 — 30.01.2023
+
+* Added new function to prevent Microsoft Edge desktop shortcut creation upon its' update;
+  * By default it prevents for all Microsofot Edge channels (with checks if any of them is installed): `PreventEdgeShortcutCreation -Channels Stable, Beta, Dev, Canary`.
+* The `IPv6Component` function gets new argument `-PreferIPv4overIPv6` to `Enable the Internet Protocol Version 6 (TCP/IPv6) component for all network connections if your ISP supports it. Prefer IPv4 over IPv6`;
+  * Closes #440.
+* Improved scheduled tasks functions: now it checks if tasks were already created for another user;
+* Fixed rare bug for `SetUserShellFolderLocation` function when Microsoft Terminal deblicates PC drivers in the menu;
+* Minor changes.
+
+* `Wrapper` updated up to `2.6.0`;
+  * Now fully compatitable with the latest script version.
+
+## 5.14.7 | 6.2.7 — 08.01.2023
+
+* Improved Microsoft Defender startup checks;
+* Improved Badge.yml config;
+* Minor changes.
+
 ## 5.14.6 | 6.2.6 — 26.12.2022
 
 * Improved Defender startup checks;
@@ -22,7 +178,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Switched .NET Desktop Runtime 6 to the 7th version;
 * Minor changes.
 
-Wrapper
+## Wrapper
+
 * Removed annoying pop-up notification while importing preset;
 * @BenchTweakGaming.
 
@@ -43,7 +200,8 @@ Wrapper
 * Fixed #406;
 * Minor changes.
 
-Wrapper version bumped to 2.5.8
+## Wrapper version bumped to 2.5.8
+
 * Minor changes and added link to Discord channel;
 * Wrapper 3.0 is on the way.
 
@@ -875,7 +1033,7 @@ Diff from v5.9
 
 * Calling the specific function was completely rewritten! :rocket:
   * Added the <kbd>Tab</kbd> functions autocompletion by typing its' first letters
-    ![Image](./img/Autocomplete.gif)
+    https://user-images.githubusercontent.com/10544660/225270281-908abad1-d125-4cae-a19b-2cf80d5d2751.mp4
   * The code from moved to the `Functions.ps1` file;
   * If you want to call the specific function you need to [dot source](https://docs.microsoft.com/ru-ru/powershell/module/microsoft.powershell.core/about/about_operators#dot-sourcing-operator-) the `Functions.ps1` first
 

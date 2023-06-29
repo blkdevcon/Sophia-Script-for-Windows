@@ -2,8 +2,8 @@
 	.SYNOPSIS
 	Default preset file for "Sophia Script for Windows 11 (PowerShell 7)"
 
-	Version: v6.2.6
-	Date: 04.12.2022
+	Version: v6.5.2
+	Date: 26.06.2023
 
 	Copyright (c) 2014—2023 farag
 	Copyright (c) 2019—2023 farag & Inestic
@@ -26,12 +26,12 @@
 
 	.NOTES
 	Supported Windows 11 versions
-	Versions: 21H2/22H2
-	Builds: 22000.1335+, 22621+
+	Version: 22H2
+	Builds: 22621.1702+
 	Editions: Home/Pro/Enterprise
 
 	.NOTES
-	To use the TAB completion for functions and their arguments dot source the Function.ps1 script first:
+	To use the TAB completion for functions and their arguments dot source the Functions.ps1 script first:
 		. .\Function.ps1 (with a dot at the beginning)
 	Read more in the Functions.ps1 file
 
@@ -69,7 +69,7 @@ param
 
 Clear-Host
 
-$Host.UI.RawUI.WindowTitle = "Sophia Script for Windows 11 v6.2.6 (PowerShell 7) | Made with $([char]::ConvertFromUtf32(0x1F497)) of Windows | $([char]0x00A9) farag & Inestic, 2014$([char]0x2013)2023"
+$Host.UI.RawUI.WindowTitle = "Sophia Script for Windows 11 v6.5.2 (PowerShell 7) | Made with $([char]::ConvertFromUtf32(0x1F497)) of Windows | $([char]0x00A9) farag & Inestic, 2014$([char]0x2013)2023"
 
 Remove-Module -Name Sophia -Force -ErrorAction Ignore
 Import-Module -Name $PSScriptRoot\Manifest\Sophia.psd1 -PassThru -Force
@@ -106,29 +106,19 @@ if ($Functions)
 		Invoke-Expression -Command $Function
 	}
 
-	# The "RefreshEnvironment" and "Errors" functions will be executed at the end
-	Invoke-Command -ScriptBlock {RefreshEnvironment; Errors}
+	# The "PostActions" and "Errors" functions will be executed at the end
+	Invoke-Command -ScriptBlock {PostActions; Errors}
 
 	exit
 }
 
 #region Protection
-<#
-	The mandatory checks. If you want to disable a warning message about whether the preset file was customized, remove the "-Warning" argument
-	Please, do not comment out this function
-
-	Обязательные проверки. Чтобы выключить предупреждение о необходимости настройки пресет-файла, удалите аргумент "-Warning"
-	Пожалуйста, не комментируйте данную функцию
-#>
+# The mandatory checks. If you want to disable a warning message about whether the preset file was customized, remove the "-Warning" argument
+# Обязательные проверки. Чтобы выключить предупреждение о необходимости настройки пресет-файла, удалите аргумент "-Warning"
 Checks -Warning
 
-<#
-	Enable script logging. Log will be recorded into the script folder
-	To stop logging just close console or type "Stop-Transcript"
-
-	Включить логирование работы скрипта. Лог будет записываться в папку скрипта
-	Чтобы остановить логгирование, закройте консоль или наберите "Stop-Transcript"
-#>
+# Enable script logging. Log will be recorded into the script folder. To stop logging just close console or type "Stop-Transcript"
+# Включить логирование работы скрипта. Лог будет записываться в папку скрипта. Чтобы остановить логгирование, закройте консоль или наберите "Stop-Transcript"
 # Logging
 
 # Create a restore point
@@ -139,15 +129,15 @@ CreateRestorePoint
 #region Privacy & Telemetry
 <#
 	Disable the "Connected User Experiences and Telemetry" service (DiagTrack), and block the connection for the Unified Telemetry Client Outbound Traffic
-	Disabling the "Connected User Experiences and Telemetry" service (DiagTrack) can cause you not being able to get Xbox achievements anymore
+	Disabling the "Connected User Experiences and Telemetry" service (DiagTrack) can cause you not being able to get Xbox achievements anymore and affects Feedback Hub
 
 	Отключить службу "Функциональные возможности для подключенных пользователей и телеметрия" (DiagTrack) и блокировать соединение для исходящего трафик клиента единой телеметрии
-	Отключение службы "Функциональные возможности для подключенных пользователей и телеметрия" (DiagTrack) может привести к тому, что вы больше не сможете получать достижения Xbox
+	Отключение службы "Функциональные возможности для подключенных пользователей и телеметрия" (DiagTrack) может привести к тому, что вы больше не сможете получать достижения Xbox, а также влияет на работу Feedback Hub
 #>
 DiagTrackService -Disable
 
 # Enable the "Connected User Experiences and Telemetry" service (DiagTrack), and allow the connection for the Unified Telemetry Client Outbound Traffic (default value)
-# Включить службу "Функциональные возможности для подключенных пользователей и телеметрия" (DiagTrack) и разрешить подключение для исходящего трафик клиента единой телеметрии  (значение по умолчанию)
+# Включить службу "Функциональные возможности для подключенных пользователей и телеметрия" (DiagTrack) и разрешить подключение для исходящего трафик клиента единой телеметрии (значение по умолчанию)
 # DiagTrackService -Enable
 
 # Set the diagnostic data collection to minimum
@@ -175,11 +165,11 @@ FeedbackFrequency -Never
 # FeedbackFrequency -Automatically
 
 # Turn off the diagnostics tracking scheduled tasks
-# Отключить задачи диагностического отслеживания
+# Отключить задания диагностического отслеживания
 ScheduledTasks -Disable
 
 # Turn on the diagnostics tracking scheduled tasks (default value)
-# Включить задачи диагностического отслеживания (значение по умолчанию)
+# Включить задания диагностического отслеживания (значение по умолчанию)
 # ScheduledTasks -Enable
 
 # Do not use sign-in info to automatically finish setting up device after an update
@@ -242,8 +232,8 @@ AppsSilentInstalling -Disable
 # Не предлагать способы завершения настройки этого устройства для наиболее эффективного использования Windows
 WhatsNewInWindows -Disable
 
-# Suggest ways to get the most out of Windows and finish setting up this device
-# Предложить способы завершения настройки этого устройства для наиболее эффективного использования Windows
+# Suggest ways to get the most out of Windows and finish setting up this device (default value)
+# Предложить способы завершения настройки этого устройства для наиболее эффективного использования Windows (значение по умолчанию)
 # WhatsNewInWindows -Enable
 
 # Don't let Microsoft use your diagnostic data for personalized tips, ads, and recommendations
@@ -261,6 +251,14 @@ BingSearch -Disable
 # Enable Bing search in the Start Menu (default value)
 # Включить поиск через Bing в меню "Пуск" (значение по умолчанию)
 # BingSearch -Enable
+
+# Do not show websites from your browsing history in the Start menu
+# Не показать веб-сайты из журнала браузера в меню "Пуск"
+BrowsingHistory -Hide
+
+# Show websites from your browsing history in the Start menu (default value)
+# Показать веб-сайты из журнала браузера в меню "Пуск" (значение по умолчанию)
+# BrowsingHistory -Show
 #endregion Privacy & Telemetry
 
 #region UI & Personalization
@@ -336,14 +334,6 @@ SnapAssist -Disable
 # При прикреплении окна показывать, что можно прикрепить рядом с ним (значение по умолчанию)
 # SnapAssist -Enable
 
-# Show snap layouts when I hover over a windows's maximaze button (default value)
-# Показывать макеты прикрепления, частью которых является приложение, при наведении указателя мыши на кнопки панели задач (значение по умолчанию)
-SnapAssistFlyout -Enable
-
-# Hide snap layouts when I hover over a windows's maximaze button
-# Не показывать макеты прикрепления, частью которых является приложение, при наведении указателя мыши на кнопки панели задач
-# SnapAssistFlyout -Disable
-
 # Show the file transfer dialog box in the detailed mode
 # Отображать диалоговое окно передачи файлов в развернутом виде
 FileTransferDialog -Detailed
@@ -384,13 +374,29 @@ TaskbarAlignment -Center
 # Установить выравнивание панели задач по левому краю
 # TaskbarAlignment -Left
 
-# Hide the search button from the taskbar
-# Скрыть кнопку поиска с панели задач
+# Hide the widgets icon on the taskbar
+# Скрыть кнопку "Мини-приложения" с панели задач
+TaskbarWidgets -Hide
+
+# Show the widgets icon on the taskbar (default value)
+# Отобразить кнопку "Мини-приложения" на панели задач (значение по умолчанию)
+# TaskbarWidgets -Show
+
+# Hide the search on the taskbar
+# Скрыть поле или значок поиска на панели задач
 TaskbarSearch -Hide
 
 # Show the search icon on the taskbar
-# Отобразить кнопку поиска на панели задач
-# TaskbarSearch -Show
+# Показать значок поиска на панели задач
+# TaskbarSearch -SearchIcon
+
+# Show the search icon and label on the taskbar
+# Показать значок и метку поиска на панели задач
+# TaskbarSearch -SearchIconLabel
+
+# Show the search box on the taskbar (default value)
+# Показать поле поиска на панели задач (значение по умолчанию)
+# TaskbarSearch -SearchBox
 
 # Hide the Task view button from the taskbar
 # Скрыть кнопку "Представление задач" с панели задач
@@ -400,21 +406,21 @@ TaskViewButton -Hide
 # Отобразить кнопку "Представление задач" на панели задач (значение по умолчанию)
 # TaskViewButton -Show
 
-# Hide the widgets icon on the taskbar
-# Скрыть кнопку "Мини-приложения" с панели задач
-TaskbarWidgets -Hide
-
-# Show the widgets icon on the taskbar (default value)
-# Отобразить кнопку "Мини-приложения" на панели задач (значение по умолчанию)
-# TaskbarWidgets -Show
-
-# Hide the Chat icon (Microsoft Teams) on the taskbar
-# Скрыть кнопку чата (Microsoft Teams) с панели задач
+# Hide the Chat icon (Microsoft Teams) on the taskbar and prevent Microsoft Teams from installing for new users
+# Скрыть кнопку чата (Microsoft Teams) с панели задач и запретить установку Microsoft Teams для новых пользователей
 TaskbarChat -Hide
 
-# Show the Chat icon (Microsoft Teams) on the taskbar (default value)
-# Отобразить кнопку чата (Microsoft Teams) на панели задач (значение по умолчанию)
+# Show the Chat icon (Microsoft Teams) on the taskbar and remove block from installing Microsoft Teams for new users (default value)
+# Отобразить кнопку чата (Microsoft Teams) на панели задач и убрать блокировку на устанвоку Microsoft Teams для новых пользователей (значение по умолчанию)
 # TaskbarChat -Show
+
+# Show seconds on the taskbar clock
+# Показывать секунды на часах на панели задач
+SecondsInSystemClock -Show
+
+# Hide seconds on the taskbar clock (default value)
+# Скрыть секунды на часах на панели задач (значение по умолчанию)
+# SecondsInSystemClock -Hide
 
 # Unpin the "Microsoft Edge", "Microsoft Store" shortcuts from the taskbar
 # Открепить ярлыки "Microsoft Edge", "Microsoft Store" от панели задач
@@ -464,14 +470,6 @@ JPEGWallpapersQuality -Max
 # Установить коэффициент качества обоев рабочего стола в формате JPEG по умолчанию
 # JPEGWallpapersQuality -Default
 
-# Notify me when a restart is required to finish updating
-# Уведомлять меня о необходимости перезагрузки для завершения обновления
-RestartNotification -Show
-
-# Do not notify me when a restart is required to finish updating (default value)
-# Не yведомлять меня о необходимости перезагрузки для завершения обновления (значение по умолчанию)
-# RestartNotification -Hide
-
 # Do not add the "- Shortcut" suffix to the file name of created shortcuts
 # Нe дoбaвлять "- яpлык" к имени coздaвaeмых яpлыков
 ShortcutsSuffix -Disable
@@ -512,17 +510,25 @@ Cursors -Dark
 # Скачать и установить бесплатные светлые курсоры "Windows 11 Cursors Concept v2" от Jepri Creations
 # Cursors -Light
 
-# Set default cursors (default value)
-# Установить курсоры по умолчанию (значение по умолчанию)
+# Set default cursors
+# Установить курсоры по умолчанию
 # Cursors -Default
 
-# Do not group files and folder
-# Не группировать файлы и папки
-# FolderGroupBy -None
+# Do not group files and folder in the Downloads folder
+# Не группировать файлы и папки в папке Загрузки
+FolderGroupBy -None
 
-# Group files and folder by date modified (default value)
+# Group files and folder by date modified in the Downloads folder (default value)
 # Группировать файлы и папки по дате изменения (значение по умолчанию)
 # FolderGroupBy -Default
+
+# Do not expand to open folder on navigation pane (default value)
+# Не разворачивать до открытой папки область навигации (значение по умолчанию)
+NavigationPaneExpand -Disable
+
+# Expand to open folder on navigation pane
+# Развернуть до открытой папки область навигации
+# NavigationPaneExpand -Enable
 #endregion UI & Personalization
 
 #region OneDrive
@@ -533,6 +539,10 @@ Cursors -Dark
 # Install OneDrive 64-bit (default value)
 # Установить OneDrive 64-бит (значение по умолчанию)
 # OneDrive -Install
+
+# Install OneDrive 64-bit all users to %ProgramFiles% depending which installer is triggered
+# Установить OneDrive 64-бит для всех пользователей в %ProgramFiles% в зависимости от от того, как запускается инсталлятор
+# OneDrive -Install -AllUsers
 #endregion OneDrive
 
 #region System
@@ -553,8 +563,8 @@ StorageSenseFrequency -Month
 # Запускать Контроль памяти, когда остается мало место на диске (значение по умолчанию)
 # StorageSenseFrequency -Default
 
-# Turn on automatic cleaning up temporary system and app files
-# Автоматически очищать временные файлы системы и приложений
+# Turn on automatic cleaning up temporary system and app files (default value)
+# Автоматически очищать временные файлы системы и приложений (значение по умолчанию)
 StorageSenseTempFiles -Enable
 
 # Turn off automatic cleaning up temporary system and app files
@@ -562,7 +572,7 @@ StorageSenseTempFiles -Enable
 # StorageSenseTempFiles -Disable
 #endregion StorageSense
 
-# Disable hibernation. Do not recommend turning it off on laptops
+# Disable hibernation. It isn't recommended to turn off for laptops
 # Отключить режим гибернации. Не рекомендуется выключать на ноутбуках
 Hibernation -Disable
 
@@ -575,7 +585,7 @@ Hibernation -Disable
 # TempFolder -SystemDrive
 
 # Change %TEMP% environment variable path to %LOCALAPPDATA%\Temp (default value)
-# Изменить путь переменной среды для %TEMP% на LOCALAPPDATA%\Temp (значение по умолчанию)
+# Изменить путь переменной среды для %TEMP% на %LOCALAPPDATA%\Temp (значение по умолчанию)
 # TempFolder -Default
 
 # Disable the Windows 260 characters path limit
@@ -668,29 +678,16 @@ UpdateMicrosoftProducts -Enable
 # Не получать обновления для других продуктов Майкрософт (значение по умолчанию)
 # UpdateMicrosoftProducts -Disable
 
-<#
-	Set power plan on "High performance"
-	It isn't recommended to turn on the "High performance" power plan on laptops
-
-	Установить схему управления питанием на "Высокая производительность"
-	Не рекомендуется включать схему управления питанием "Высокая производительность" для ноутбуков
-#>
+# Set power plan on "High performance". It isn't recommended to turn on for laptops
+# Установить схему управления питанием на "Высокая производительность". Не рекомендуется включать на ноутбуках
 PowerPlan -High
 
 # Set power plan on "Balanced" (default value)
 # Установить схему управления питанием на "Сбалансированная" (значение по умолчанию)
 # PowerPlan -Balanced
 
-# Use the latest installed .NET runtime for all apps
-# Использовать последнюю установленную среду выполнения .NET для всех приложений
-LatestInstalled.NET -Enable
-
-# Do not use the latest installed .NET runtime for all apps (default value)
-# Не использовать последнюю установленную версию .NET для всех приложений (значение по умолчанию)
-# LatestInstalled.NET -Disable
-
-# Do not allow the computer to turn off the network adapters to save power
-# Запретить отключение всех сетевых адаптеров для экономии энергии
+# Do not allow the computer to turn off the network adapters to save power. It isn't recommended to turn off for laptops
+# Запретить отключение всех сетевых адаптеров для экономии энергии. Не рекомендуется выключать на ноутбуках
 NetworkAdaptersSavePower -Disable
 
 # Allow the computer to turn off the network adapters to save power (default value)
@@ -699,21 +696,30 @@ NetworkAdaptersSavePower -Disable
 
 <#
 	Disable the Internet Protocol Version 6 (TCP/IPv6) component for all network connections
-	Before invoking the function, a check will be run whether your ISP supports the IPv6 protocol using https://ipv6-test.com
+	Before invoking the function, a check will be run whether your ISP supports the IPv6 protocol using https://ipify.org
 
 	Выключить IP версии 6 (TCP/IPv6)
-	Перед выполнением функции будет проведена проверка: поддерживает ли ваш провайдер IPv6, используя ресурс https://ipv6-test.com
+	Перед выполнением функции будет проведена проверка: поддерживает ли ваш провайдер IPv6, используя ресурс https://ipify.org
 #>
 IPv6Component -Disable
 
 <#
 	Enable the Internet Protocol Version 6 (TCP/IPv6) component for all network connections (default value)
-	Before invoking the function, a check will be run whether your ISP supports the IPv6 protocol using https://ipv6-test.com
+	Before invoking the function, a check will be run whether your ISP supports the IPv6 protocol using https://ipify.org
 
 	Включить IP версии 6 (TCP/IPv6) (значение по умолчанию)
-	Перед выполнением функции будет проведена проверка: поддерживает ли ваш провайдер IPv6, используя ресурс https://ipv6-test.com
+	Перед выполнением функции будет проведена проверка: поддерживает ли ваш провайдер IPv6, используя ресурс https://ipify.org
 #>
 # IPv6Component -Enable
+
+<#
+	Enable the Internet Protocol Version 6 (TCP/IPv6) component for all network connections. Prefer IPv4 over IPv6
+	Before invoking the function, a check will be run whether your ISP supports the IPv6 protocol using https://ipify.org
+
+	Включить IP версии 6 (TCP/IPv6) и предпочитать. Предпочтение IPv4 перед IPv6
+	Перед выполнением функции будет проведена проверка: поддерживает ли ваш провайдер IPv6, используя ресурс https://ipify.org
+#>
+# IPv6Component -PreferIPv4overIPv6
 
 # Override for default input method: English
 # Переопределить метод ввода по умолчанию: английский
@@ -724,7 +730,7 @@ InputMethod -English
 # InputMethod -Default
 
 <#
-	Move user folders location to the root of any drive using the interactive menu
+	Change user folders location to the root of any drive using the interactive menu
 	User files or folders won't me moved to a new location. Move them manually
 	They're located in the %USERPROFILE% folder by default
 
@@ -732,7 +738,7 @@ InputMethod -English
 	Пользовательские файлы и папки не будут перемещены в новое расположение. Переместите их вручную
 	По умолчанию они располагаются в папке %USERPROFILE%
 #>
-SetUserShellFolderLocation -Root
+Set-UserShellFolderLocation -Root
 
 <#
 	Select folders for user folders location manually using a folder browser dialog
@@ -743,7 +749,7 @@ SetUserShellFolderLocation -Root
 	Пользовательские файлы и папки не будут перемещены в новое расположение. Переместите их вручную
 	По умолчанию они располагаются в папке %USERPROFILE%
 #>
-# SetUserShellFolderLocation -Custom
+# Set-UserShellFolderLocation -Custom
 
 <#
 	Change user folders location to the default values
@@ -754,7 +760,15 @@ SetUserShellFolderLocation -Root
 	Пользовательские файлы и папки не будут перемещены в новое расположение. Переместите их вручную
 	По умолчанию они располагаются в папке %USERPROFILE%
 #>
-# SetUserShellFolderLocation -Default
+# Set-UserShellFolderLocation -Default
+
+# Use the latest installed .NET runtime for all apps
+# Использовать последнюю установленную среду выполнения .NET для всех приложений
+LatestInstalled.NET -Enable
+
+# Do not use the latest installed .NET runtime for all apps (default value)
+# Не использовать последнюю установленную версию .NET для всех приложений (значение по умолчанию)
+# LatestInstalled.NET -Disable
 
 <#
 	Save screenshots by pressing Win+PrtScr on the Desktop
@@ -869,13 +883,13 @@ NetworkDiscovery -Enable
 # Выключить сетевое обнаружение и общий доступ к файлам и принтерам для рабочих групп (значение по умолчанию)
 # NetworkDiscovery -Disable
 
-# Automatically adjust active hours for me based on daily usage
-# Автоматически изменять период активности для этого устройства на основе действий
-ActiveHours -Automatically
+# Notify me when a restart is required to finish updating
+# Уведомлять меня о необходимости перезагрузки для завершения обновления
+RestartNotification -Show
 
-# Manually adjust active hours for me based on daily usage (default value)
-# Вручную изменять период активности для этого устройства на основе действий (значение по умолчанию)
-# ActiveHours -Manually
+# Do not notify me when a restart is required to finish updating (default value)
+# Не yведомлять меня о необходимости перезагрузки для завершения обновления (значение по умолчанию)
+# RestartNotification -Hide
 
 # Restart as soon as possible to finish updating
 # Перезапустить устройство как можно быстрее, чтобы завершить обновление
@@ -885,14 +899,44 @@ RestartDeviceAfterUpdate -Enable
 # Не перезапускать устройство как можно быстрее, чтобы завершить обновление (значение по умолчанию)
 # RestartDeviceAfterUpdate -Disable
 
+# Automatically adjust active hours for me based on daily usage
+# Автоматически изменять период активности для этого устройства на основе действий
+ActiveHours -Automatically
+
+# Manually adjust active hours for me based on daily usage (default value)
+# Вручную изменять период активности для этого устройства на основе действий (значение по умолчанию)
+# ActiveHours -Manually
+
+# Do not get Windows updates as soon as they're available for your device (default value)
+# Не получать последние обновления, как только они будут доступны (значение по умолчанию)
+WindowsLatestUpdate -Disable
+
+# Get Windows updates as soon as they're available for your device
+# Получайте последние обновления, как только они будут доступны
+# WindowsLatestUpdate -Enable
+
 <#
 	Register app, calculate hash, and associate with an extension with the "How do you want to open this" pop-up hidden
 	Зарегистрировать приложение, вычислить хэш и ассоциировать его с расширением без всплывающего окна "Каким образом вы хотите открыть этот файл?"
 
 	Set-Association -ProgramPath "C:\SumatraPDF.exe" -Extension .pdf -Icon "shell32.dll,100"
 	Set-Association -ProgramPath "%ProgramFiles%\Notepad++\notepad++.exe" -Extension .txt -Icon "%ProgramFiles%\Notepad++\notepad++.exe,0"
+	Set-Association -ProgramPath MSEdgeMHT -Extension .html
 #>
 # Set-Association -ProgramPath "%ProgramFiles%\Notepad++\notepad++.exe" -Extension .txt -Icon "%ProgramFiles%\Notepad++\notepad++.exe,0"
+
+# Экспортировать все ассоциации в Windows в корень папки в виде файла Application_Associations.json
+# Export all Windows associations into Application_Associations.json file to script root folder
+# Export-Associations
+
+<#
+	Импортировать все ассоциации в Windows из файла Application_Associations.json
+	Вам необходимо установить все приложения согласно экспортированному файлу Application_Associations.json, чтобы восстановить все ассоциации
+
+	Import all Windows associations from an Application_Associations.json file
+	You need to install all apps according to an exported Application_Associations.json file to restore all associations
+#>
+# Import-Associations
 
 # Set Windows Terminal as default terminal app to host the user interface for command-line applications
 # Установить Windows Terminal как приложение терминала по умолчанию для размещения пользовательского интерфейса для приложений командной строки
@@ -911,8 +955,8 @@ DefaultTerminalApp -WindowsTerminal
 InstallVCRedist
 
 <#
-	Install the latest .NET Desktop Runtime 7 (x86/x64)
-	Установить последнюю версию .NET Desktop Runtime 6 (x86/x64)
+	Install the latest .NET Desktop Runtime 6, 7 (x86/x64)
+	Установить последнюю версию .NET Desktop Runtime 6, 7 (x86/x64)
 
 	https://dotnet.microsoft.com/en-us/download/dotnet
 #>
@@ -930,11 +974,23 @@ RKNBypass -Enable
 
 # Enable all necessary dependencies (reboot may require) and open Microsoft Store WSA page to install Windows Subsystem for Android™ with Amazon Appstore manually
 # Включить все необходимые зависимости (может потребоваться перезагрузка) и открыть страницу WSA в Microsoft Store, чтобы вручную установить Windows Subsystem for Android™ with Amazon Appstore
-# WSA -Enable
+# Install-WSA
 
-# Disable all necessary dependencies (reboot may require) and uninstall Windows Subsystem for Android™ with Amazon Appstore (default value)
-# Выключить все необходимые зависимости и удалить Windows Subsystem for Android™ with Amazon Appstore (значение по умолчанию)
-# WSA -Disable
+# List Microsoft Edge channels to prevent desktop shortcut creation upon its' update
+# Перечислите каналы Microsoft Edge для предотвращения создания ярлыков на рабочем столе после его обновления
+PreventEdgeShortcutCreation -Channels Stable, Beta, Dev, Canary
+
+# Do not prevent desktop shortcut creation upon Microsoft Edge update (default value)
+# Не предотвращать создание ярлыков на рабочем столе при обновлении Microsoft Edge (значение по умолчанию)
+# PreventEdgeShortcutCreation -Disable
+
+# Prevent all internal SATA drives from showing up as removable media in the taskbar notification area
+# Запретить отображать все внутренние SATA-диски как съемные носители в области уведомлений на панели задач
+SATADrivesRemovableMedia -Disable
+
+# Show up all internal SATA drives as removeable media in the taskbar notification area (default value)
+# Отображать все внутренние SATA-диски как съемные носители в области уведомлений на панели задач (значение по умолчанию)
+# SATADrivesRemovableMedia -Default
 #endregion System
 
 #region WSL
@@ -945,7 +1001,7 @@ RKNBypass -Enable
 	Установить подсистему Windows для Linux (WSL), последний пакет обновления ядра Linux и дистрибутив Linux, используя всплывающую форму
 	Параметр "При обновлении Windows получать обновления для других продуктов Майкрософт" будет включен автоматически в Центре обновлении Windows, чтобы получать обновления ядра
 #>
-# WSL
+# Install-WSL
 #endregion WSL
 
 #region Start menu
@@ -953,24 +1009,16 @@ RKNBypass -Enable
 # Открепить все приложения от начального экрана
 # UnpinAllStartApps
 
-# Run the Windows PowerShell shortcut from the Start menu as Administrator
-# Запускать ярлык Windows PowerShell в меню "Пуск" от имени Администратора
-RunPowerShellShortcut -Elevated
-
-# Run the Windows PowerShell shortcut from the Start menu as user (default value)
-# Запускать ярлык Windows PowerShell в меню "Пуск" от имени пользователя (значение по умолчанию)
-# RunPowerShellShortcut -NonElevated
-
-# Show default Start layout (for 22621+ build only) (default value)
-# Отображать стандартный макет начального экрана (только для сборок 22621+) (значение по умолчанию)
+# Show default Start layout (default value)
+# Отображать стандартный макет начального экрана (значение по умолчанию)
 # StartLayout -Default
 
-# Show more pins on Start (for 22621+ build only)
-# Отображать больше закреплений на начальном экране (только для сборок 22621+)
+# Show more pins on Start
+# Отображать больше закреплений на начальном экране
 StartLayout -ShowMorePins
 
-# Show more recommendations on Start (for 22621+ build only)
-# Отображать больше рекомендаций на начальном экране (только для сборок 22621+)
+# Show more recommendations on Start
+# Отображать больше рекомендаций на начальном экране
 # StartLayout -ShowMoreRecommendations
 #endregion Start menu
 
@@ -995,23 +1043,18 @@ UninstallUWPApps
 #>
 # RestoreUWPApps
 
-<#
-	Download and install "HEVC Video Extensions from Device Manufacturer" to be able to open .heic and .heif formats
-	HEVC Video Extension is already installed in Windows 11 22H2 by default
-
-	Скачать и установить "Расширения для видео HEVC от производителя устройства", чтобы иметь возможность открывать форматы .heic и .heif
-	Расширение уже установлено в Windows 11 22H2 по умолчанию
-#>
-HEIF -Install
+# Download and install "HEVC Video Extensions from Device Manufacturer" to be able to open .heic and .heif formats
+# Скачать и установить "Расширения для видео HEVC от производителя устройства", чтобы иметь возможность открывать форматы .heic и .heif
+HEVC -Install
 
 <#
 	Open Microsoft Store "HEVC Video Extensions from Device Manufacturer" page to install this extension manually to be able to open .heic and .heif formats
-	The extension can be installed without a Microsoft account
+	The extension can be installed without an Microsoft account
 
 	Открыть страницу "Расширения для видео HEVC от производителя устройства" в Microsoft Store, чтобы вручную установить расширение для открытия форматов .heic и .heif
 	Расширение может быть установлено бесплатно без учетной записи Microsoft
 #>
-# HEIF -Manually
+# HEVC -Manually
 
 # Disable Cortana autostarting
 # Выключить автозагрузку Кортана
@@ -1028,10 +1071,6 @@ TeamsAutostart -Disable
 # Enable Microsoft Teams autostarting (default value)
 # Включить автозагрузку Microsoft Teams (значение по умолчанию)
 # TeamsAutostart -Enable
-
-# Check for UWP apps updates
-# Проверить обновления UWP-приложений
-CheckUWPAppsUpdates
 #endregion UWP apps
 
 #region Gaming
@@ -1058,7 +1097,7 @@ XboxGameTips -Disable
 
 # Choose an app and set the "High performance" graphics performance for it. Only if you have a dedicated GPU
 # Выбрать приложение и установить для него параметры производительности графики на "Высокая производительность". Только при наличии внешней видеокарты
-SetAppGraphicsPerformance
+Set-AppGraphicsPerformance
 
 <#
 	Turn on hardware-accelerated GPU scheduling. Restart needed
@@ -1076,42 +1115,42 @@ GPUScheduling -Enable
 
 #region Scheduled tasks
 <#
-	Create the "Windows Cleanup" scheduled task for cleaning up Windows unused files and updates
-	A native interactive toast notification pops up every 30 days. The task runs every 30 days
+	Create the "Windows Cleanup" scheduled task for cleaning up Windows unused files and updates.
+	A native interactive toast notification pops up every 30 days. You have to enable Windows Script Host in order to make the function work
 
-	Создать задачу "Windows Cleanup" по очистке неиспользуемых файлов и обновлений Windows в Планировщике заданий
-	Нативный интерактивный тост всплывает каждые 30 дней. Задача выполняется каждые 30 дней
+	Создать задание "Windows Cleanup" по очистке неиспользуемых файлов и обновлений Windows в Планировщике заданий.
+	Задание выполняется каждые 30 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
 CleanupTask -Register
 
 # Delete the "Windows Cleanup" and "Windows Cleanup Notification" scheduled tasks for cleaning up Windows unused files and updates
-# Удалить задачи "Windows Cleanup" и "Windows Cleanup Notification" по очистке неиспользуемых файлов и обновлений Windows из Планировщика заданий
+# Удалить задания "Windows Cleanup" и "Windows Cleanup Notification" по очистке неиспользуемых файлов и обновлений Windows из Планировщика заданий
 # CleanupTask -Delete
 
 <#
 	Create the "SoftwareDistribution" scheduled task for cleaning up the %SystemRoot%\SoftwareDistribution\Download folder
-	The task will wait until the Windows Updates service finishes running. The task runs every 90 days
+	The task will wait until the Windows Updates service finishes running. The task runs every 90 days. You have to enable Windows Script Host in order to make the function work
 
-	Создать задачу "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download в Планировщике заданий
-	Задача будет ждать, пока служба обновлений Windows не закончит работу. Задача выполняется каждые 90 дней
+	Создать задание "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download в Планировщике заданий
+	Задание будет ждать, пока служба обновлений Windows не закончит работу. Задание выполняется каждые 90 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
 SoftwareDistributionTask -Register
 
 # Delete the "SoftwareDistribution" scheduled task for cleaning up the %SystemRoot%\SoftwareDistribution\Download folder
-# Удалить задачу "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download из Планировщика заданий
+# Удалить задание "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download из Планировщика заданий
 # SoftwareDistributionTask -Delete
 
 <#
 	Create the "Temp" scheduled task for cleaning up the %TEMP% folder
-	Only files older than one day will be deleted. The task runs every 60 days
+	Only files older than one day will be deleted. The task runs every 60 days. You have to enable Windows Script Host in order to make the function work
 
-	Создать задачу "Temp" в Планировщике заданий по очистке папки %TEMP%
-	Удаляться будут только файлы старше одного дня. Задача выполняется каждые 60 дней
+	Создать задание "Temp" в Планировщике заданий по очистке папки %TEMP%
+	Удаляться будут только файлы старше одного дня. Задание выполняется каждые 60 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
 TempTask -Register
 
 # Delete the "Temp" scheduled task for cleaning up the %TEMP% folder
-# Удалить задачу "Temp" по очистке папки %TEMP% из Планировщика заданий
+# Удалить задание "Temp" по очистке папки %TEMP% из Планировщика заданий
 # TempTask -Delete
 #endregion Scheduled tasks
 
@@ -1121,7 +1160,7 @@ TempTask -Register
 NetworkProtection -Enable
 
 # Disable Microsoft Defender Exploit Guard network protection (default value)
-# Выключить защиту сети в Microsoft Defender Exploit Guard
+# Выключить защиту сети в Microsoft Defender Exploit Guard (значение по умолчанию)
 # NetworkProtection -Disable
 
 # Enable detection for potentially unwanted applications and block them
@@ -1171,7 +1210,7 @@ CommandLineProcessAudit -Enable
 EventViewerCustomView -Enable
 
 # Remove the "Process Creation" custom view in the Event Viewer to log executed processes and their arguments (default value)
-# Удалить настаиваемое представление "Создание процесса" в Просмотре событий для журналирования запускаемых процессов и их аргументов (значение по умолчанию)
+# Удалить настраиваемое представление "Создание процесса" в Просмотре событий для журналирования запускаемых процессов и их аргументов (значение по умолчанию)
 # EventViewerCustomView -Disable
 
 # Enable logging for all Windows PowerShell modules
@@ -1206,13 +1245,8 @@ SaveZoneInformation -Disable
 # Включить проверку Диспетчера вложений файлов, скачанных из интернета как небезопасные (значение по умолчанию)
 # SaveZoneInformation -Enable
 
-<#
-	Disable Windows Script Host
-	Blocks WSH from executing .js and .vbs files
-
-	Отключить Windows Script Host
-	Блокирует запуск файлов .js и .vbs
-#>
+# Disable Windows Script Host. Blocks WSH from executing .js and .vbs files
+# Отключить Windows Script Host. Блокирует запуск файлов .js и .vbs
 # WindowsScriptHost -Disable
 
 # Enable Windows Script Host (default value)
@@ -1239,6 +1273,14 @@ DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1
 # Disable DNS-over-HTTPS for IPv4 (default value)
 # Выключить DNS-over-HTTPS для IPv4 (значение по умолчанию)
 # DNSoverHTTPS -Disable
+
+# Enable Local Security Authority protection to prevent code injection
+# Включить защиту локальной системы безопасности, чтобы предотвратить внедрение кода
+# LocalSecurityAuthority -Enable
+
+# Disable Local Security Authority protection (default value)
+# Выключить защиту локальной системы безопасности (значение по умолчанию)
+# LocalSecurityAuthority -Disable
 #endregion Microsoft Defender & Security
 
 #region Context menu
@@ -1374,24 +1416,10 @@ Windows10ContextMenu -Disable
 # UpdateLGPEPolicies
 #endregion Update Policies
 
-<#
-	Simulate pressing F5 to refresh the desktop
-	Refresh desktop icons, environment variables, taskbar
-	Restart the Start menu
-	Please, do not comment out this function
+# Environment refresh and other neccessary post actions
+# Обновление окружения и прочие необходимые действия после выполнения основных функций
+PostActions
 
-	Симулировать нажатие F5 для обновления рабочего стола
-	Обновить иконки рабочего стола, переменные среды, панель задач
-	Перезапустить меню "Пуск"
-	Пожалуйста, не комментируйте данную функцию
-#>
-RefreshEnvironment
-
-<#
-	Errors output
-	Please, do not comment out this function
-
-	Вывод ошибок
-	Пожалуйста, не комментируйте данную функцию
-#>
+# Errors output
+# Вывод ошибок
 Errors

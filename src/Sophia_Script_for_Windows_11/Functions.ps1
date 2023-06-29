@@ -2,8 +2,8 @@
 	.SYNOPSIS
 	The TAB completion for functions and their arguments
 
-	Version: v6.2.6
-	Date: 04.12.2022
+	Version: v6.5.2
+	Date: 26.06.2023
 
 	Copyright (c) 2014—2023 farag
 	Copyright (c) 2019—2023 farag & Inestic
@@ -44,13 +44,13 @@ function Sophia
 		Invoke-Expression -Command $Function
 	}
 
-	# The "RefreshEnvironment" and "Errors" functions will be executed at the end
-	Invoke-Command -ScriptBlock {RefreshEnvironment; Errors}
+	# The "PostActions" and "Errors" functions will be executed at the end
+	Invoke-Command -ScriptBlock {PostActions; Errors}
 }
 
 Clear-Host
 
-$Host.UI.RawUI.WindowTitle = "Sophia Script for Windows 11 v6.2.6 | Made with $([char]::ConvertFromUtf32(0x1F497)) of Windows | $([char]0x00A9) farag & Inestic, 2014$([char]0x2013)2023"
+$Host.UI.RawUI.WindowTitle = "Sophia Script for Windows 11 v6.5.2 | Made with $([char]::ConvertFromUtf32(0x1F497)) of Windows | $([char]0x00A9) farag & Inestic, 2014$([char]0x2013)2023"
 
 Remove-Module -Name Sophia -Force -ErrorAction Ignore
 Import-Module -Name $PSScriptRoot\Manifest\Sophia.psd1 -PassThru -Force
@@ -58,7 +58,7 @@ Import-Module -Name $PSScriptRoot\Manifest\Sophia.psd1 -PassThru -Force
 Import-LocalizedData -BindingVariable Global:Localization -FileName Sophia -BaseDirectory $PSScriptRoot\Localizations
 
 # The mandatory checks. Please, do not comment out this function
-#Checks
+Checks
 
 $Parameters = @{
 	CommandName   = "Sophia"
@@ -78,6 +78,25 @@ $Parameters = @{
 		foreach ($Command in $Commands)
 		{
 			$ParameterSets = (Get-Command -Name $Command).Parametersets.Parameters | Where-Object -FilterScript {$null -eq $_.Attributes.AliasNames}
+
+			# If a module command is OneDrive
+			if ($Command -eq "OneDrive")
+			{
+				(Get-Command -Name $Command).Name | Where-Object -FilterScript {$_ -like "*$wordToComplete*"}
+
+				# Get all command arguments, excluding defaults
+				foreach ($ParameterSet in $ParameterSets.Name)
+				{
+					# If an argument is AllUsers
+					if ($ParameterSet -eq "AllUsers")
+					{
+						# The "OneDrive -Install -AllUsers" construction
+						"OneDrive" + " " + "-Install" + " " + "-" + $ParameterSet | Where-Object -FilterScript {$_ -like "*$wordToComplete*"} | ForEach-Object -Process {"`"$_`""}
+					}
+
+					continue
+				}
+			}
 
 			# If a module command is UnpinTaskbarShortcuts
 			if ($Command -eq "UnpinTaskbarShortcuts")
@@ -169,5 +188,5 @@ Write-Verbose -Message "Sophia -Functions <tab>" -Verbose
 Write-Verbose -Message "Sophia -Functions temp<tab>" -Verbose
 Write-Verbose -Message "Sophia -Functions `"DiagTrackService -Disable`", `"DiagnosticDataLevel -Minimal`", UninstallUWPApps" -Verbose
 Write-Information -MessageData "" -InformationAction Continue
-Write-Verbose -Message "UninstallUWPApps, `"PinToStart -UnpinAll`"" -Verbose
-Write-Verbose -Message "`"Set-Association -ProgramPath ```"%ProgramFiles%\Notepad++\notepad++.exe```" -Extension .txt -Icon ```"%ProgramFiles%\Notepad++\notepad++.exe,0```"`"" -Verbose
+Write-Verbose -Message "Sophia -Functions `"UninstallUWPApps, `"PinToStart -UnpinAll`" -Verbose"
+Write-Verbose -Message "Sophia -Functions `"Set-Association -ProgramPath ```"%ProgramFiles%\Notepad++\notepad++.exe```" -Extension .txt -Icon ```"%ProgramFiles%\Notepad++\notepad++.exe,0```"`"" -Verbose

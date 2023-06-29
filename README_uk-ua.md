@@ -1,6 +1,7 @@
 <div align="right">
   This page also in:
-  <a title="English" href="README.md"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" height="11px"/></a>
+  <a title="English" href="README.md"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_(1-2).svg" height="11px"/></a>
+  <a title="Deutsch" href="README_de-de.md"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" height="11px"/></a>
 </div>
 
 # Sophia Script для Windows
@@ -14,9 +15,10 @@
   <img src="https://img.shields.io/badge/PowerShell%205.1%20&%207.3-Ready-blue.svg?color=5391FE&style=flat&logo=powershell">
 
   <a href="https://github.com/farag2/Sophia-Script-for-Windows/releases"><img src="https://img.shields.io/github/v/release/farag2/Sophia-Script-for-Windows">
-  </a><a href="https://github.com/farag2/Sophia-Script-for-Windows"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/farag2/9852d6b9569a91bf69ceba8a94cc97f4/raw/0ab9790ab7ca11c7598ea469edf36cda05a1e7b1/SophiaScript.json"></a>
+  </a><a href="https://github.com/farag2/Sophia-Script-for-Windows"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/farag2/9852d6b9569a91bf69ceba8a94cc97f4/raw/SophiaScript.json"></a>
 
   <a href="https://github.com/farag2/Sophia-Script-for-Windows/releases"><img src="https://img.shields.io/github/downloads/farag2/Sophia-Script-for-Windows/total?label=downloads%20%28since%20May%202020%29"></a>
+  <a href="https://community.chocolatey.org/packages/sophia"><img src="https://img.shields.io/chocolatey/dt/sophia?color=blue&label=chocolatey%20package"></a>
 
   <a href="https://twitter.com/tea_head_"><img src="https://img.shields.io/badge/Logo%20by-teahead-blue?style=flat&logo=Twitter"></a>
   <img src="https://img.shields.io/badge/Made%20with-149ce2.svg?color=149ce2"><img src="https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/img/heart.svg" height="17px"/>
@@ -35,29 +37,29 @@
 </p>
 
 <p align="left">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" height="20px"/>
+  <img title="English" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_(1-2).svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People's_Republic_of_China.svg" height="20px"/>
+  <img title="中国人" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People's_Republic_of_China.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" height="20px"/>
+  <img title="Deutsch" src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" height="20px"/>
+  <img title="Français" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" height="20px"/>
+  <img title="Italiano" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" height="20px"/>
+  <img title="Русский" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" height="20px"/>
+  <img title="Українська" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" height="20px"/>
+  <img title="Türkçe" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" height="20px"/>
+  <img title="Español" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" height="20px"/>
+  <img title="Português" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg" height="20px"/>
+  <img title="Magyar" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg" height="20px"/>
+  <img title="Polski" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg" height="20px"/>
 </p>
 
 ***
@@ -112,12 +114,10 @@
 |                Версія                | Маркетингова назва  |   Збіркa    | Архітектура |       Видання       |
 |:-------------------------------------|--------------------:|:-----------:|:-----------:|:-------------------:|
 | Windows 11 Insider Preview 23H2      | 2023 Update         | 22509+      |             | Home/Pro/Enterprise |
-| Windows 11 22H2                      | 2022 Update         | 22621       |             | Home/Pro/Enterprise |
-| Windows 11 21H2                      |                     | 22000.739+  |             | Home/Pro/Enterprise |
-| Windows 10 22H2                      | 2022 Update         | 19045.2006+ |     x64     | Home/Pro/Enterprise |
-| Windows 10 21H2                      | October 2021 Update | 19044.1706+ |     x64     | Home/Pro/Enterprise |
-| Windows 10 21H2 Enterprise LTSC 2021 | October 2021 Update | 19044.1706+ |     x64     | Enterprise          |
-| Windows 10 1809 Enterprise LTSC 2019 | October 2018 Update | 17763.3046+ |     x64     | Enterprise          |
+| Windows 11 22H2                      | 2022 Update         | 22621.1702+ |             | Home/Pro/Enterprise |
+| Windows 10 22H2                      | 2022 Update         | 19045.2965+ |     x64     | Home/Pro/Enterprise |
+| Windows 10 21H2 Enterprise LTSC 2021 | October 2021 Update | 19044.2965+ |     x64     | Enterprise          |
+| Windows 10 1809 Enterprise LTSC 2019 | October 2018 Update | 17763.4377+ |     x64     | Enterprise          |
 
 ### Увага
 
@@ -145,12 +145,13 @@
 * Видалення UWP-додатків, що відображають назви пакетів;
   * Динамічна генерація списку встановлених UWP-додатків
 * Відновлення видалених за замовчуванням UWP-додатків для поточного користувача з відображенням [локалізованих](#локалізовані-назви-uwp-пакетів) назв пакетів;
-
 * <kbd>TAB</kbd> [автодоповнення](#автодоповнення-tab-детальніше-тут) для функції та її аргументів шляхом введення перших літер;
 * Вимкнення функцій Windows для відображення дружніх назв пакетів у спливаючій формі, написаній на [WPF](#скріншоти);
 * Видалення можливостей Windows відображати дружні назви пакетів у спливаючій формі, написаній на [WPF](#скріншоти);
-* Завантаження та встановлення [HEVC Video Extensions від виробника пристрою](https://www.microsoft.com/p/hevc-video-extensions-from-device-manufacturer/9n4wgh0z6vhq) для відкриття форматів .heic та .heif;
+* Завантаження та встановлення [HEVC Video Extensions від виробника пристрою](https://www.microsoft.com/p/hevc-video-extensions-from-device-manufacturer/9n4wgh0z6vhq) для відкриття формата [HEVC](https://uk.wikipedia.org/wiki/H.265);
 * Реєстрація програми, розрахунок хешу та встановлення за замовчуванням для певного розширення без спливаючого вікна "Як ви хочете відкрити це" за допомогою спеціальної [функції](https://github.com/DanysysTeam/PS-SFTA);
+* Експортувати всі асоціації в Windows у корінь папки у вигляді файлу Application_Associations.json;
+Імпортувати всі асоціації в Windows з файлу Application_Associations.json. Вам необхідно встановити всі програми згідно з експортованим файлом Application_Associations.json, щоб відновити всі асоціації;
 * Встановлення будь-якого підтримуваного дистрибутива Linux для WSL з відображенням дружніх назв дистрибутивів у спливаючій формі, написаній на [WPF](#скріншоти);
 * Створення запланованих завдань `Очищення Windows` та `Повідомлення про очищення Windows` для очищення Windows від невикористовуваних файлів та оновлень;
   * Буде відображено сповіщення про інтерактивний тост, де ви можете вибрати сплячий режим, запустити завдання очищення або [відхилити](#інтерактивні-тости-для-запланованих-завдань)
@@ -162,7 +163,7 @@
 * Відкріплення всіх плиток меню "Пуск";
 * Ввімкнення Контрольованого доступу до папок та додавання захищених папок за допомогою діалогового меню;
 * Додавання папки виключення з перевірки антивірусом Microsoft Defender за допомогою діалогового меню;
-* Додавання файлу виключення з перевірки антивірусу Microsoft Defender за допомогою діалогового меню;
+* Додавання файлу виключення з перевірки антивірусом Microsoft Defender за допомогою діалогового меню;
 * Оновлення значків робочого столу, змінних середовища і панелі завдань без перезапуску Провідника;
 * Налаштування безпеки Windows;
 * Ще багато "глибоких" налаштувань Файлового Провідника та контекстного меню.
@@ -171,11 +172,11 @@
 
 ### Автодоповнення <kbd>TAB</kbd>. Детальніше [тут](#як-запустити-певну-функціюї)
 
-![Image](./img/Autocomplete.gif)
+https://user-images.githubusercontent.com/10544660/225270281-908abad1-d125-4cae-a19b-2cf80d5d2751.mp4
 
 ### Програмна зміна розташування папок користувача за допомогою інтерактивного меню
 
-![Image](https://i.imgur.com/gJFAEOk.png)
+https://user-images.githubusercontent.com/10544660/225270532-8f0694d3-0b9e-44df-8a48-677212d62315.mp4
 
 ### Локалізовані назви UWP-пакетів
 
@@ -187,7 +188,7 @@
 
 ### Завантажте та встановіть будь-який підтримуваний дистрибутив Linux в автоматичному режимі
 
-![Image](https://i.imgur.com/j2KLZm0.png)
+![Image](https://i.imgur.com/Xn5SqxE.png)
 
 ### Інтерактивні тости для запланованих завдань
 
@@ -212,25 +213,35 @@
 * Перегляньте файл `Sophia.ps1` для налаштування функцій, які потрібно запустити;
   * Помістіть символ "#" перед функцією, якщо ви не бажаєте, щоб вона виконувалась.
   * Приберіть символ "#" перед функцією, якщо ви бажаєте, щоб вона виконувалась.
-* В `Windows 10` натисніть `Файл` у Провіднику, наведіть курсор на `Запустити Windows PowerShell`, і виберіть `Запустити Windows PowerShell від імені адміністратора` [(як це зробити зі скріншотами)](https://www.howtogeek.com/662611/9-ways-to-open-powershell-in-windows-10/)
-* В `Windows 11` натисніть правою кнопкою миші на <kbd>Windows</kbd> іконку і виберіть `Термінал (Адміністратор)`. Потім змініть поточне розташування
+* Скопіюйте весь шлях до `Sophia.ps1`
+  * У `Windows 10` натисніть і утримуйте клавішу <kbd>Shift</kbd>, клацніть правою кнопкою миші на `Sophia.ps1` і виберіть Копіювати як шлях;
+  * У `Windows 11` клацніть правою кнопкою миші на `Sophia.ps1` і виберіть `Копіювати як шлях`.
+* Відкрийте `Windows PowerShell`
+  * У `Windows 10` натисніть `Файл` у Провіднику файлів, наведіть курсор на `Відкрити Windows PowerShell` і виберіть `Відкрити Windows PowerShell від імені адміністратора` [(покрокова інструкція зі скріншотами)](https://www.howtogeek.com/662611/9-ways-to-open-powershell-in-windows-10/);
+  * У `Windows 11` натисніть правою кнопкою миші на іконку <kbd>Windows</kbd> і відкрийте `Термінал Windows (Адміністратор)`.
+* Встановіть політику виконання, щоб мати змогу запускати сценарії лише у поточному сеансі PowerShell;
 
-  ```powershell
-  Set-Location -Path "Path\To\Sophia\Folder"
-  ```
-
-* Встановіть політику виконання, щоб запускати сценарії тільки в поточному сеансі PowerShell
-
-  ```powershell
+```powershell
   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
-  ```
+```
 
-* Введіть `.\Sophia.ps1` <kbd>Enter</kbd> щоб запустити налаштований файл.
+* На `Windows 10` вставте скопійований шлях до `Sophia.ps1` з попереднього кроку (за допомогою [&](https://en.wikipedia.org/wiki/Ampersand));
+
+   ```powershell
+   & <path_from_buffer>
+   ```
+
+  * На `Windows 11`
+
+   ```powershell
+   .\Sophia.ps1
+   ```
 
 ## Як використовувати Wrapper
 
 * Завантажте та розпакуйте архів;
-* Запустіть `SophiaScriptWrapper.exe` та імпортуйте Sophia.ps1;
+* Запустіть `SophiaScriptWrapper.exe` та імпортуйте `Sophia.ps1`;
+  * `Sophia.ps1` повинен знаходитись у тій папці `Sophia Script`;
   * Wrapper має рендеринг інтерфейсу в реальному часі
 * Налаштуйте кожну функцію;
 * Відкрийте вкладку `Console Output` і натисніть `Run PowerShell`.

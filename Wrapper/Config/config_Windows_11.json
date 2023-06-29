@@ -300,6 +300,23 @@
     "WindowsDefault": "One"
   },
   {
+    "Id": 215,
+    "Region": "Privacy & Telemetry",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "BrowsingHistory",
+    "Arg": {
+      "Zero": {
+        "Tag": "Hide"
+      },
+      "One": {
+        "Tag": "Show"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "One"
+  },
+  {
     "Id": 300,
     "Region": "UI & Personalization",
     "Control": "cmb",
@@ -440,23 +457,6 @@
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
-    "Function": "SnapAssistFlyout",
-    "Arg": {
-      "Zero": {
-        "Tag": "Enable"
-      },
-      "One": {
-        "Tag": "Disable"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "Zero"
-  },
-  {
-    "Id": 309,
-    "Region": "UI & Personalization",
-    "Control": "cmb",
-    "Required": "false",
     "Function": "SnapAssist",
     "Arg": {
       "Zero": {
@@ -470,7 +470,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 310,
+    "Id": 309,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -487,7 +487,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 311,
+    "Id": 310,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -504,7 +504,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 312,
+    "Id": 311,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -521,7 +521,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 313,
+    "Id": 312,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -538,7 +538,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 314,
+    "Id": 313,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -555,11 +555,11 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 315,
+    "Id": 314,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
-    "Function": "TaskbarSearch",
+    "Function": "TaskbarWidgets",
     "Arg": {
       "Zero": {
         "Tag": "Hide"
@@ -570,6 +570,29 @@
     },
     "Preset": "Zero",
     "WindowsDefault": "One"
+  },
+  {
+    "Id": 315,
+    "Region": "UI & Personalization",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "TaskbarSearch",
+    "Arg": {
+      "Zero": {
+        "Tag": "Hide"
+      },
+      "One": {
+        "Tag": "SearchIcon"
+      },
+      "Two": {
+        "Tag": "SearchIconLabel"
+      },
+      "Three": {
+        "Tag": "SearchBox"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "Three"
   },
   {
     "Id": 316,
@@ -593,7 +616,7 @@
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
-    "Function": "TaskbarWidgets",
+    "Function": "TaskbarChat",
     "Arg": {
       "Zero": {
         "Tag": "Hide"
@@ -610,13 +633,13 @@
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
-    "Function": "TaskbarChat",
+    "Function": "SecondsInSystemClock",
     "Arg": {
       "Zero": {
-        "Tag": "Hide"
+        "Tag": "Show"
       },
       "One": {
-        "Tag": "Show"
+        "Tag": "Hide"
       }
     },
     "Preset": "Zero",
@@ -732,23 +755,6 @@
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
-    "Function": "RestartNotification",
-    "Arg": {
-      "Zero": {
-        "Tag": "Show"
-      },
-      "One": {
-        "Tag": "Hide"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
-    "Id": 326,
-    "Region": "UI & Personalization",
-    "Control": "cmb",
-    "Required": "false",
     "Function": "ShortcutsSuffix",
     "Arg": {
       "Zero": {
@@ -762,7 +768,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 327,
+    "Id": 326,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -779,7 +785,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 328,
+    "Id": 327,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -796,7 +802,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 329,
+    "Id": 328,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -813,7 +819,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 330,
+    "Id": 329,
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -833,6 +839,40 @@
     "WindowsDefault": "Zero"
   },
   {
+    "Id": 330,
+    "Region": "UI & Personalization",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "FolderGroupBy",
+    "Arg": {
+      "Zero": {
+        "Tag": "None"
+      },
+      "One": {
+        "Tag": "Default"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "One"
+  },
+  {
+    "Id": 331,
+    "Region": "UI & Personalization",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "NavigationPaneExpand",
+    "Arg": {
+      "Zero": {
+        "Tag": "Disable"
+      },
+      "One": {
+        "Tag": "Enable"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "Zero"
+  },
+  {
     "Id": 400,
     "Region": "OneDrive",
     "Control": "cmb",
@@ -847,6 +887,20 @@
       }
     },
     "Preset": "Zero",
+    "WindowsDefault": ""
+  },
+  {
+    "Id": 401,
+    "Region": "OneDrive",
+    "Control": "chk",
+    "Required": "false",
+    "Function": "OneDrive -AllUsers",
+    "Arg": {
+      "Zero": {
+        "Tag": ""
+      }
+    },
+    "Preset": "",
     "WindowsDefault": ""
   },
   {
@@ -1167,6 +1221,9 @@
       },
       "One": {
         "Tag": "Enable"
+      },
+      "Two": {
+        "Tag": "PreferIPv4overIPv6"
       }
     },
     "Preset": "One",
@@ -1194,7 +1251,7 @@
     "Region": "System",
     "Control": "cmb",
     "Required": "false",
-    "Function": "SetUserShellFolderLocation",
+    "Function": "Set-UserShellFolderLocation",
     "Arg": {
       "Zero": {
         "Tag": "Root"
@@ -1418,13 +1475,13 @@
     "Region": "System",
     "Control": "cmb",
     "Required": "false",
-    "Function": "ActiveHours",
+    "Function": "RestartNotification",
     "Arg": {
       "Zero": {
-        "Tag": "Automatically"
+        "Tag": "Show"
       },
       "One": {
-        "Tag": "Manually"
+        "Tag": "Hide"
       }
     },
     "Preset": "Zero",
@@ -1452,6 +1509,68 @@
     "Region": "System",
     "Control": "cmb",
     "Required": "false",
+    "Function": "ActiveHours",
+    "Arg": {
+      "Zero": {
+        "Tag": "Automatically"
+      },
+      "One": {
+        "Tag": "Manually"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "One"
+  },
+  {
+    "Id": 536,
+    "Region": "System",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "WindowsLatestUpdate",
+    "Arg": {
+      "Zero": {
+        "Tag": "Disable"
+      },
+      "One": {
+        "Tag": "Enable"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "Zero"
+  },
+  {
+    "Id": 537,
+    "Region": "System",
+    "Control": "chk",
+    "Required": "false",
+    "Function": "Export-Associations",
+    "Arg": {
+      "Zero": {
+        "Tag": ""
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": ""
+  },
+  {
+    "Id": 538,
+    "Region": "System",
+    "Control": "chk",
+    "Required": "false",
+    "Function": "Import-Associations",
+    "Arg": {
+      "Zero": {
+        "Tag": ""
+      }
+    },
+    "Preset": "",
+    "WindowsDefault": ""
+  },
+  {
+    "Id": 539,
+    "Region": "System",
+    "Control": "cmb",
+    "Required": "false",
     "Function": "DefaultTerminalApp",
     "Arg": {
       "Zero": {
@@ -1465,7 +1584,7 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 536,
+    "Id": 540,
     "Region": "System",
     "Control": "chk",
     "Required": "false",
@@ -1479,7 +1598,7 @@
     "WindowsDefault": ""
   },
   {
-    "Id": 537,
+    "Id": 541,
     "Region": "System",
     "Control": "chk",
     "Required": "false",
@@ -1493,7 +1612,7 @@
     "WindowsDefault": ""
   },
   {
-    "Id": 538,
+    "Id": 542,
     "Region": "System",
     "Control": "cmb",
     "Required": "false",
@@ -1510,17 +1629,48 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 539,
+    "Id": 543,
     "Region": "System",
     "Control": "cmb",
     "Required": "false",
-    "Function": "WSA",
+    "Function": "Install-WSA",
     "Arg": {
       "Zero": {
-        "Tag": "Enable"
+        "Tag": ""
+      }
+    },
+    "Preset": "",
+    "WindowsDefault": ""
+  },
+  {
+    "Id": 544,
+    "Region": "System",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "PreventEdgeShortcutCreation",
+    "Arg": {
+      "Zero": {
+        "Tag": "Channels"
       },
       "One": {
         "Tag": "Disable"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "One"
+  },
+  {
+    "Id": 545,
+    "Region": "System",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "SATADrivesRemovableMedia",
+    "Arg": {
+      "Zero": {
+        "Tag": "Disable"
+      },
+      "One": {
+        "Tag": "Default"
       }
     },
     "Preset": "Zero",
@@ -1531,7 +1681,7 @@
     "Region": "WSL",
     "Control": "chk",
     "Required": "false",
-    "Function": "WSL",
+    "Function": "Install-WSL",
     "Arg": {
       "Zero": {
         "Tag": ""
@@ -1556,23 +1706,6 @@
   },
   {
     "Id": 701,
-    "Region": "Start menu",
-    "Control": "cmb",
-    "Required": "false",
-    "Function": "RunPowerShellShortcut",
-    "Arg": {
-      "Zero": {
-        "Tag": "Elevated"
-      },
-      "One": {
-        "Tag": "NonElevated"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
-    "Id": 702,
     "Region": "Start menu",
     "Control": "cmb",
     "Required": "false",
@@ -1638,7 +1771,7 @@
     "Region": "UWP apps",
     "Control": "cmb",
     "Required": "false",
-    "Function": "HEIF",
+    "Function": "HEVC",
     "Arg": {
       "Zero": {
         "Tag": "Manually"
@@ -1685,20 +1818,6 @@
     "WindowsDefault": "One"
   },
   {
-    "Id": 806,
-    "Region": "UWP apps",
-    "Control": "chk",
-    "Required": "false",
-    "Function": "CheckUWPAppsUpdates",
-    "Arg": {
-      "Zero": {
-        "Tag": ""
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": ""
-  },
-  {
     "Id": 900,
     "Region": "Gaming",
     "Control": "cmb",
@@ -1737,7 +1856,7 @@
     "Region": "Gaming",
     "Control": "chk",
     "Required": "false",
-    "Function": "SetAppGraphicsPerformance",
+    "Function": "Set-AppGraphicsPerformance",
     "Arg": {
       "Zero": {
         "Tag": ""
@@ -2043,7 +2162,24 @@
         "Tag": "Disable"
       }
     },
-    "Preset": "",
+    "Preset": "Zero",
+    "WindowsDefault": "One"
+  },
+  {
+    "Id": 1114,
+    "Region": "Microsoft Defender & Security",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "LocalSecurityAuthority",
+    "Arg": {
+      "Zero": {
+        "Tag": "Enable"
+      },
+      "One": {
+        "Tag": "Disable"
+      }
+    },
+    "Preset": "Zero",
     "WindowsDefault": "One"
   },
   {

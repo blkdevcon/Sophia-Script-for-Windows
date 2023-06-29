@@ -1,6 +1,7 @@
 <div align="right">
   This page also in:
   <a title="Українська" href="README_uk-ua.md"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" height="11px"/></a>
+  <a title="Deutsch" href="README_de-de.md"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" height="11px"/></a>
 </div>
 
 # Sophia Script for Windows
@@ -13,10 +14,11 @@
   <a href="https://github.com/farag2/Sophia-Script-for-Windows/actions"><img src="https://img.shields.io/github/actions/workflow/status/farag2/Sophia-Script-for-Windows/Sophia.yml?label=GitHub%20Actions&logo=GitHub"></a>
   <img src="https://img.shields.io/badge/PowerShell%205.1%20&%207.3-Ready-blue.svg?color=5391FE&style=flat&logo=powershell">
 
-  <a href="https://github.com/farag2/Sophia-Script-for-Windows/releases"><img src="https://img.shields.io/github/v/release/farag2/Sophia-Script-for-Windows">
-  </a><a href="https://github.com/farag2/Sophia-Script-for-Windows"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/farag2/9852d6b9569a91bf69ceba8a94cc97f4/raw/0ab9790ab7ca11c7598ea469edf36cda05a1e7b1/SophiaScript.json"></a>
+  <a href="https://github.com/farag2/Sophia-Script-for-Windows/releases"><img src="https://img.shields.io/github/v/release/farag2/Sophia-Script-for-Windows"></a>
+  <a href="https://github.com/farag2/Sophia-Script-for-Windows"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/farag2/9852d6b9569a91bf69ceba8a94cc97f4/raw/SophiaScript.json"></a>
 
   <a href="https://github.com/farag2/Sophia-Script-for-Windows/releases"><img src="https://img.shields.io/github/downloads/farag2/Sophia-Script-for-Windows/total?label=downloads%20%28since%20May%202020%29"></a>
+  <a href="https://community.chocolatey.org/packages/sophia"><img src="https://img.shields.io/chocolatey/dt/sophia?color=blue&label=chocolatey%20package"></a>
 
   <a href="https://twitter.com/tea_head_"><img src="https://img.shields.io/badge/Logo%20by-teahead-blue?style=flat&logo=Twitter"></a>
   <img src="https://img.shields.io/badge/Made%20with-149ce2.svg?color=149ce2"><img src="https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/img/heart.svg" height="17px"/>
@@ -35,29 +37,29 @@
 </p>
 
 <p align="left">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" height="20px"/>
+  <img title="English" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_(1-2).svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People's_Republic_of_China.svg" height="20px"/>
+  <img title="中国人" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People's_Republic_of_China.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" height="20px"/>
+  <img title="Deutsch" src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" height="20px"/>
+  <img title="Français" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" height="20px"/>
+  <img title="Italiano" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" height="20px"/>
+  <img title="Русский" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" height="20px"/>
+  <img title="Українська" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" height="20px"/>
+  <img title="Türkçe" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" height="20px"/>
+  <img title="Español" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" height="20px"/>
+  <img title="Português" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg" height="20px"/>
+  <img title="Magyar" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg" height="20px"/>
   &nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg" height="20px"/>
+  <img title="Polski" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg" height="20px"/>
 </p>
 
 ***
@@ -91,11 +93,11 @@
 
 ![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size30&pause=1000&width=435&lines=Made+with+%E2%9D%A4%EF%B8%8F+of+Windows%C2%AE)
 
-> **Note**: Sophia Script for Windows is the largest PowerShell module on `GitHub` for `Windows 10` & `Windows 11` fine-tuning and automating the routine tasks. It offers more than 150 unique tweaks, and shows how Windows can be configured without making any harm to it.
+> **Note**: Sophia Script for Windows is the largest PowerShell module on `GitHub` for `Windows 10` & `Windows 11` for fine-tuning and automating the routine tasks. It offers more than 150 unique tweaks, and shows how Windows can be configured without making any harm to it.
 
 ## Before running
 
-> **Note**: Due to the fact that the script includes more than **150** functions with different arguments, you must read the entire **Sophia.ps1** carefully and **comment out/uncomment** those functions that you do/do not want to be executed (without need to edit the code), or use [Wrapper](https://github.com/farag2/Sophia-Script-for-Windows#davids-sophia-script-wrapper). Every tweak in the preset file has its' corresponding function to **restore the default settings**. Running the script is best done on a fresh install because running it on **wrong** tweaked system may result in errors occurring.
+> **Note**: Due to the fact that the script includes more than **150** functions with different arguments, you must read the entire **Sophia.ps1** carefully and **comment out/uncomment** those functions that you do/do not want to be executed (without need to edit the code), or use [Wrapper](https://github.com/farag2/Sophia-Script-for-Windows#benchtweakgaming-sophia-script-wrapper). Every tweak in the preset file has its' corresponding function to **restore the default settings**. Running the script is best done on a fresh install because running it on **wrong** tweaked system may result in errors occurring.
 
 ## Donations
 
@@ -112,12 +114,10 @@
 |               Version                |    Marketing name   |    Build    | Arch |      Editions       |
 |:-------------------------------------|--------------------:|:-----------:|:----:|:-------------------:|
 | Windows 11 Insider Preview 23H2      | 2023 Update         | 22509+      |      | Home/Pro/Enterprise |
-| Windows 11 22H2                      | 2022 Update         | 22621       |      | Home/Pro/Enterprise |
-| Windows 11 21H2                      |                     | 22000.739+  |      | Home/Pro/Enterprise |
-| Windows 10 22H2                      | 2022 Update         | 19045.2006+ | x64  | Home/Pro/Enterprise |
-| Windows 10 21H2                      | October 2021 Update | 19044.1706+ | x64  | Home/Pro/Enterprise |
-| Windows 10 21H2 Enterprise LTSC 2021 | October 2021 Update | 19044.1706+ | x64  | Enterprise          |
-| Windows 10 1809 Enterprise LTSC 2019 | October 2018 Update | 17763.3046+ | x64  | Enterprise          |
+| Windows 11 22H2                      | 2022 Update         | 22621.1702+ |      | Home/Pro/Enterprise |
+| Windows 10 22H2                      | 2022 Update         | 19045.2965+ | x64  | Home/Pro/Enterprise |
+| Windows 10 21H2 Enterprise LTSC 2021 | October 2021 Update | 19044.2965+ | x64  | Enterprise          |
+| Windows 10 1809 Enterprise LTSC 2019 | October 2018 Update | 17763.4377+ | x64  | Enterprise          |
 
 ### Warning
 
@@ -148,8 +148,10 @@
 * The <kbd>TAB</kbd> [autocompletion](#the-tab-autocomplete-read-more-here) for function and its' arguments by typing first letters;
 * Disable Windows features displaying friendly packages names with pop-up form written in [WPF](#screenshots);
 * Uninstall Windows capabilities displaying friendly packages names with pop-up form written in [WPF](#screenshots);
-* Download and install the [HEVC Video Extensions from Device Manufacturer](https://www.microsoft.com/p/hevc-video-extensions-from-device-manufacturer/9n4wgh0z6vhq) to be able to open .heic and .heif formats;
+* Download and install the [HEVC Video Extensions from Device Manufacturer](https://www.microsoft.com/p/hevc-video-extensions-from-device-manufacturer/9n4wgh0z6vhq) to be able to open [HEVC](https://en.wikipedia.org/wiki/H.265) format;
 * Register app, calculate hash, and set as default for specific extension without the "How do you want to open this" pop-up using special [function](https://github.com/DanysysTeam/PS-SFTA);
+* Export all Windows associations. Associations will be exported as Application_Associations.json file in script root folder;
+* Import exported JSON file after a clean installation. You have to install all apps according to an exported JSON file to restore all associations;
 * Install any supported Linux distrobution for WSL displaying friendly distro names with pop-up form written in [WPF](#screenshots);
 * Create a `Windows Cleanup` and `Windows Cleanup Notification` scheduled tasks for Windows cleaning up unused files and updates;
   * A native toast notification will be displayed where you can choose to snooze, run the cleanup task or [dismiss](#native-interactive-toasts-for-the-scheduled-tasks)
@@ -164,17 +166,18 @@
 * Add exclusion file from Microsoft Defender Antivirus scanning using dialog menu;
 * Refresh desktop icons, environment variables and taskbar without restarting File Explorer;
 * Configure the Windows security;
+* Display all policy registry keys (even manually created ones) in the Local Group Policy Editor snap-in (gpedit.msc);
 * Many more File Explorer and context menu "deep" tweaks.
 
 ## Screenshots
 
 ### The <kbd>TAB</kbd> autocomplete. Read more [here](#how-to-run-the-specific-functions)
 
-![Image](./img/Autocomplete.gif)
+https://user-images.githubusercontent.com/10544660/225270281-908abad1-d125-4cae-a19b-2cf80d5d2751.mp4
 
 ### Change user folders location programmatically using the interactive menu
 
-![Image](https://i.imgur.com/gJFAEOk.png)
+https://user-images.githubusercontent.com/10544660/225270532-8f0694d3-0b9e-44df-8a48-677212d62315.mp4
 
 ### Localized UWP packages names
 
@@ -186,7 +189,7 @@
 
 ### Download and install any supported Linux distribution in automatic mode
 
-![Image](https://i.imgur.com/j2KLZm0.png)
+![Image](https://i.imgur.com/Xn5SqxE.png)
 
 ### Native interactive toasts for the scheduled tasks
 
@@ -211,25 +214,36 @@
 * Look through the `Sophia.ps1` file to configure functions that you want to be run;
   * Place the "#" char before function if you don't want it to be run.
   * Remove the "#" char before function if you want it to be run.
-* On `Windows 10` click `File` in File Explorer, hover over `Open Windows PowerShell`, and select `Open Windows PowerShell as Administrator` [(how-to with screenshots)](https://www.howtogeek.com/662611/9-ways-to-open-powershell-in-windows-10/)
-* On `Windows 11` right-click on the <kbd>Windows</kbd> icon and select `Windows Terminal (Admin)`. Then change the current location
+* Copy the whole path to `Sophia.ps1`
+  * On `Windows 10` press and hold the <kbd>Shift</kbd> key, right click on `Sophia.ps1`, and click on `Copy as path`;
+  * On `Windows 11` right click on `Sophia.ps1` and click on `Copy as path`.
+* Open `Windows PowerShell`
+  * On `Windows 10` click `File` in the File Explorer, hover over `Open Windows PowerShell`, and select `Open Windows PowerShell as Administrator` [(how-to with screenshots)](https://www.howtogeek.com/662611/9-ways-to-open-powershell-in-windows-10/)
+  * On `Windows 11` right-click on the <kbd>Windows</kbd> icon and open `Windows Terminal (Admin)`;
+* Set execution policy to be able to run scripts only in the current PowerShell session;
 
-  ```powershell
-  Set-Location -Path "Path\To\Sophia\Folder"
-  ```
-
-* Set execution policy to be able to run scripts only in the current PowerShell session
-
-  ```powershell
+```powershell
   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
-  ```
+```
 
-* Type `.\Sophia.ps1` <kbd>Enter</kbd> to run the whole preset file.
+* Run `Sophia.ps1`
+  * On `Windows 10` paste copied path to `Sophia.ps1` from the previous step (with [&](https://en.wikipedia.org/wiki/Ampersand));
+
+   ```powershell
+   & <path_from_buffer>
+   ```
+
+  * On `Windows 11`
+
+   ```powershell
+   .\Sophia.ps1
+   ```
 
 ## How to use Wrapper
 
 * Download and expand the archive;
-* Run `SophiaScriptWrapper.exe` and import Sophia.ps1;
+* Run `SophiaScriptWrapper.exe` and import `Sophia.ps1`;
+  * `Sophia.ps1` has to be in `Sophia Script` folder;
   * The Wrapper has a real time UI rendering;
 * Configure every function;
 * Open the `Console Output` tab and press `Run PowerShell`.
@@ -248,10 +262,10 @@ To run the specific function(s) [dot source](https://docs.microsoft.com/ru-ru/po
 * Now you can do like this (the quotation marks required)
 
 ```powershell
-Sophia -Functions<kbd>TAB</kbd>
-Sophia -Functions temp<kbd>TAB</kbd>
-Sophia -Functions unin<kbd>TAB</kbd>
-Sophia -Functions uwp<kbd>TAB</kbd>
+Sophia -FunctionsTAB
+Sophia -Functions temp<TAB>
+Sophia -Functions unin<TAB>
+Sophia -Functions uwp<TAB>
 Sophia -Functions "DiagTrackService -Disable", "DiagnosticDataLevel -Minimal", UninstallUWPApps
 
 UninstallUWPApps, "PinToStart -UnpinAll"
@@ -303,7 +317,7 @@ irm script.sophi.app -useb | iex
 
 ## SophiApp Community Edition (C# + WPF)
 
-[SophiApp](https://github.com/Sophia-Community/SophiApp) is in active development 🚀
+[SophiApp](https://github.com/Sophia-Community/SophiApp) is the full GUI version of `Sophia Script for Windows` and ready for use. It is in ongoing improvements with version 2.0 in development 🚀
 
 ![Image](https://github.com/Sophia-Community/SophiApp/raw/master/img/0.gif)
 ![Image](https://github.com/Sophia-Community/SophiApp/raw/master/img/1.png)
